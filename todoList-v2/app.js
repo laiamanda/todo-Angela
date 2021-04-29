@@ -7,8 +7,6 @@ const _ = require("lodash");
 require("dotenv").config();
 
 const app = express();
-const password = process.env.PASSWORD;
-const host = process.env.DB_HOST;
 
 app.set('view engine', 'ejs');
 
@@ -16,8 +14,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 //---Database---//
-//mongoose.connect("mongodb://localhost:27017/todoListDB", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify:false});
-mongoose.connect("mongodb+srv://laiamanda:"+password+host, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify:false});
+mongoose.connect("mongodb://localhost:27017/todoListDB", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify:false});
+
 //Create Item Schema
 const itemsSchema = {
   name: String
